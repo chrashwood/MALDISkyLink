@@ -10,3 +10,18 @@ Once a dataset is acquired:
 3. Skyline document is uploaded to Panorama.
 
 Requires Proteowizard and Skyline to be installed
+
+Process
+1. msconvert.exe on the raw file in the prompt, convert to .mzxml
+2. Read mzxml
+3. Save the entire <scan 1 to </scan>
+3. Change     <scan num="1"
+to <scan num="2"
+4. Write the blank scan to scan #1, just after </dataProcessing>
+4. Change the scan num and retention time for each 
+Scan 1 (blank) = 60 secs
+Scan 2 (MALDI) = 61 secs
+Scan 3 (MALDI) = 120 secs
+Scan 4 (blank) = 121 secs
+Scan 5 (blank) = 122 secs
+5. Import mzxml into Skyline
