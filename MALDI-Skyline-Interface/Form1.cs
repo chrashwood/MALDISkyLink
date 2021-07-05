@@ -21,27 +21,22 @@ namespace MALDI_Skyline_Interface
             InitializeComponent();
 
         }
-        private string fileName;
-        private string[] fileNameArray;
         private string line;
         private string blankScan;
         private string dataScan;
         private bool readyForNewLines;
+        private string newPath;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Ask for the user which folder they want to convert. Doesn't work because we need the folder, not a file.
-            //OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            //openFileDialog1.ShowDialog();
-            //fileName = openFileDialog1.FileName;
-
             // Ask for the user which folder they want to convert. 
             FolderBrowserDialog openFileDialog1 = new FolderBrowserDialog();
             openFileDialog1.ShowDialog();
-            fileName = Path.GetFileName(openFileDialog1.SelectedPath);
+            newPath = Path.GetFullPath(Path.Combine(openFileDialog1.SelectedPath, @"..\"));
+            dataScan = "";
 
             // Run msconvert on the selected folder
-            string strCmdMSConvertText = "\"" + openFileDialog1.SelectedPath + "\" --mzXML";
+            string strCmdMSConvertText = "\"" + openFileDialog1.SelectedPath + "\" --mzXML -o \"" + newPath;
             Process MSConvert = new Process();
             MSConvert.StartInfo.FileName = "msconvert.exe";
             MSConvert.StartInfo.Arguments = strCmdMSConvertText;
@@ -56,16 +51,16 @@ namespace MALDI_Skyline_Interface
             
             // Read each line from the given file
             StreamReader sr = new
-                StreamReader(fileName + ".mzXML");
+                StreamReader(openFileDialog1.SelectedPath + ".mzXML");
             readyForNewLines = true;
 
             // Parse each line of the mzml to extract the data scan and insert blank scans
             while ((line = sr.ReadLine()) != null)
             {
-                // Only include lines from the mzxml that aren't the scan info
-                if (!line.Contains("<scan") && readyForNewLines == true)
+                // Only include lines from the mzxml that aren't the scan info (confirmed to be fine)
+                if (!line.Contains("<scan num") && readyForNewLines == true)
                 {
-                    using (StreamWriter sw = File.AppendText(fileName + "_conduit.mzXML"))
+                    using (StreamWriter sw = File.AppendText(openFileDialog1.SelectedPath + "_SkyLink.mzXML"))
                     {
                         sw.WriteLine(line);
                     }
@@ -73,24 +68,25 @@ namespace MALDI_Skyline_Interface
                 // Once we come across the single scan, write the blank scan in its place and tell the program to stop writing lines from the original mzxml because they are from the data scan
                 if (line.Contains("<scan"))
                 {
-                    using (StreamWriter sw = File.AppendText(fileName + "_conduit.mzXML"))
+                    using (StreamWriter sw = File.AppendText(openFileDialog1.SelectedPath + "_SkyLink.mzXML"))
                     {
-                        sw.WriteLine("<scan num =\"1\" retentionTime=\"PT60.00000000S\" " + blankScan );
+                        sw.WriteLine("<scan num =\"1\" retentionTime=\"PT60.00000000S\" " + blankScan);
                     }
                     readyForNewLines = false;
                 }
-                // Write the data scan to a string. We need to write it twice so let's save it. Problem is that it's taking the scan header and end and writing it to the scan too. We should get rid of that.
+                // Write the data scan to a string. We need to write it twice so let's save it. Problem is that it's taking the scan header and end and writing it to the scan too. We should get rid of that. This step is causing trouble.
                 if (readyForNewLines == false)
                 {
-                    if (!line.Contains("scan num") || !line.Contains("retentionTime"))
+                    if (!line.Contains("<scan") && !line.Contains("retentionTime"))
                     {
+                        MessageBox.Show(dataScan);
                         dataScan += Environment.NewLine + line;
                     }
                 }
                 // Once the data scan is over, it's time to start writing it back to the new mzXML, twice, and then end the scan list with two blank scans. Two blank scans are required otherwise the peak picking in Skyline isn't great
                 if (line.Contains("</scan"))
                 {
-                    using (StreamWriter sw = File.AppendText(fileName + "_SkyLink.mzXML"))
+                    using (StreamWriter sw = File.AppendText(openFileDialog1.SelectedPath + "_SkyLink.mzXML"))
                     {
                         sw.WriteLine("<scan num =\"2\" retentionTime=\"PT61.00000000S\" " + dataScan);
                         sw.WriteLine("<scan num =\"3\" retentionTime=\"PT120.00000000S\" " + dataScan);
@@ -102,7 +98,11 @@ namespace MALDI_Skyline_Interface
             }
             // Delete the mzXML once we're done writing the mzXML
             sr.Close();
-            File.Delete(fileName + ".mzXML");
+            File.Delete(openFileDialog1.SelectedPath + ".mzXML");
+
+            // Opens the location of the folder where the mzXML comes out and closes the program
+            Process.Start("explorer.exe", newPath);
+            MessageBox.Show("File conversion complete. It is now compatible with Skyline");
             Close();
         }
     }
