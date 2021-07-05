@@ -26,12 +26,14 @@ namespace MALDI_Skyline_Interface
         private string dataScan;
         private bool readyForNewLines;
         private string newPath;
+        private string fileName;
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Ask for the user which folder they want to convert. 
             FolderBrowserDialog openFileDialog1 = new FolderBrowserDialog();
             openFileDialog1.ShowDialog();
+            fileName = Path.GetFileName(openFileDialog1.SelectedPath);
             newPath = Path.GetFullPath(Path.Combine(openFileDialog1.SelectedPath, @"..\"));
             dataScan = "";
 
@@ -79,7 +81,6 @@ namespace MALDI_Skyline_Interface
                 {
                     if (!line.Contains("<scan") && !line.Contains("retentionTime"))
                     {
-                        MessageBox.Show(dataScan);
                         dataScan += Environment.NewLine + line;
                     }
                 }
@@ -99,11 +100,11 @@ namespace MALDI_Skyline_Interface
             // Delete the mzXML once we're done writing the mzXML
             sr.Close();
             File.Delete(openFileDialog1.SelectedPath + ".mzXML");
+            File.Delete(fileName + "_SkyLink.mzXML");
 
             // Opens the location of the folder where the mzXML comes out and closes the program
             Process.Start("explorer.exe", newPath);
             MessageBox.Show("File conversion complete. It is now compatible with Skyline");
-            Close();
         }
     }
 }
