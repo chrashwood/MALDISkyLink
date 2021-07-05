@@ -1,0 +1,10 @@
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\bin\Debug\MALDI-Skyline-Interface.exe.config
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\bin\Debug\MALDI-Skyline-Interface.exe
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\bin\Debug\MALDI-Skyline-Interface.pdb
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Debug\MALDI-Skyline-Interface.csproj.AssemblyReference.cache
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Debug\MALDI_Skyline_Interface.Form1.resources
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Debug\MALDI_Skyline_Interface.Properties.Resources.resources
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Debug\MALDI-Skyline-Interface.csproj.GenerateResource.cache
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Debug\MALDI-Skyline-Interface.csproj.CoreCompileInputs.cache
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Debug\MALDI-Skyline-Interface.exe
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Debug\MALDI-Skyline-Interface.pdb
