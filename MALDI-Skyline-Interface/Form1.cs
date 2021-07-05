@@ -36,6 +36,7 @@ namespace MALDI_Skyline_Interface
             fileName = Path.GetFileName(openFileDialog1.SelectedPath);
             newPath = Path.GetFullPath(Path.Combine(openFileDialog1.SelectedPath, @"..\"));
             dataScan = "";
+            File.Delete(openFileDialog1.SelectedPath + "_SkyLink.mzXML");
 
             // Run msconvert on the selected folder
             string strCmdMSConvertText = "\"" + openFileDialog1.SelectedPath + "\" --mzXML -o \"" + newPath;
