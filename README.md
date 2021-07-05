@@ -1,4 +1,4 @@
-# MALDI-Skyline-conduit
+# MALDISkyLink
 Interface between Bruker raw files and Skyline
 Once a dataset is acquired:
 1. Run MALDI-link (converts all Bruker files into mzxml files via msconvert, then adds the required blank scans and duplicated data scans (python script or C# GUI)).
