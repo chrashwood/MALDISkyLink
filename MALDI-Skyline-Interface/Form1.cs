@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace MALDI_Skyline_Interface
+namespace MALDISkyLink
 {
 
     public partial class Form1 : Form

@@ -1,5 +1,5 @@
 ﻿
-namespace MALDI_Skyline_Interface
+namespace MALDISkyLink
 {
     partial class Form1
     {
@@ -40,7 +40,7 @@ namespace MALDI_Skyline_Interface
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 18);
+            this.label1.Location = new System.Drawing.Point(129, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 26);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@ namespace MALDI_Skyline_Interface
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(139, 47);
+            this.button1.Location = new System.Drawing.Point(139, 43);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace MALDI_Skyline_Interface
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MALDI_Skyline_Interface.Properties.Resources.Asset_3_1000x;
+            this.pictureBox1.Image = global::MALDISkyLink.Properties.Resources.Asset_3_1000x;
             this.pictureBox1.Location = new System.Drawing.Point(13, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 95);
@@ -70,11 +70,11 @@ namespace MALDI_Skyline_Interface
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(118, 78);
+            this.label2.Location = new System.Drawing.Point(118, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 26);
+            this.label2.Size = new System.Drawing.Size(117, 39);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Developed by:\r\nBIDMC Glycomics Core";
+            this.label2.Text = "Developed by:\r\nChristopher Ashwood\r\nBIDMC Glycomics Core";
             // 
             // Form1
             // 
