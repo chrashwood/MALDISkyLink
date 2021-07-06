@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MALDI-Skyline-Interface",
+    "\\MALDI-Skyline-Interface\\bin",
+    "\\MALDI-Skyline-Interface\\obj\\Debug",
+    "\\MALDI-Skyline-Interface\\obj\\Release",
+    "\\MALDI-Skyline-Interface\\Properties",
+    "\\MALDI-Skyline-Interface\\Resources"
   ],
-  "SelectedNode": "\\C:\\Users\\chras\\Source\\Repos\\MALDI-Skyline-conduit",
+  "SelectedNode": "\\MALDI-Skyline-Interface\\MALDISkyLink.csproj",
   "PreviewInSolutionExplorer": false
 }

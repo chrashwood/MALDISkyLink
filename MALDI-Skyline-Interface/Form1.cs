@@ -46,7 +46,11 @@ namespace MALDISkyLink
             MSConvert.StartInfo.UseShellExecute = false;
             MSConvert.StartInfo.CreateNoWindow = true;
             MSConvert.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            // Only used for debugging
+            //MSConvert.StartInfo.RedirectStandardOutput = true;
             MSConvert.Start();
+            // Only used for debugging
+            //MessageBox.Show(MSConvert.StandardOutput.ReadToEnd());
             MSConvert.WaitForExit();
 
             // Here is the blank scan for import
@@ -103,8 +107,25 @@ namespace MALDISkyLink
             File.Delete(openFileDialog1.SelectedPath + ".mzXML");
             File.Delete(fileName + "_SkyLink.mzXML");
 
+            // Centroiding the mzXML, works great but just in the wrong folder
+            string centroidMSConvertText = "--filter \"peakPicking false 1-\" --mzXML --outdir \"" + newPath + "\\SkyLink\" \"" + openFileDialog1.SelectedPath + "_SkyLink.mzXML\"";
+            Process MSCentroid = new Process();
+            MSCentroid.StartInfo.FileName = "msconvert.exe";
+            MSCentroid.StartInfo.Arguments = centroidMSConvertText;
+            MSCentroid.StartInfo.UseShellExecute = false;
+            MSCentroid.StartInfo.CreateNoWindow = true;
+            MSCentroid.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            // Used for debugging
+            //MSCentroid.StartInfo.RedirectStandardOutput = true;
+            MSCentroid.Start();
+            // Used for debugging
+            //MessageBox.Show(MSCentroid.StandardOutput.ReadToEnd());
+            MSCentroid.WaitForExit();
+
             // Opens the location of the folder where the mzXML comes out and closes the program
             Process.Start("explorer.exe", newPath);
+            //Disable this if you want the non-centroided file
+            File.Delete(openFileDialog1.SelectedPath + "_SkyLink.mzXML");
             MessageBox.Show("File conversion complete. It is now compatible with Skyline");
         }
     }

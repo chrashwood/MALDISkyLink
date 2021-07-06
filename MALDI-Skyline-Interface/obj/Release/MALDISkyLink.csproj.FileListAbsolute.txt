@@ -7,3 +7,4 @@ C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\bin\Re
 C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\bin\Release\MALDISkyLink.pdb
 C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Release\MALDISkyLink.exe
 C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Release\MALDISkyLink.pdb
+C:\Users\chras\Source\Repos\MALDI-Skyline-conduit\MALDI-Skyline-Interface\obj\Release\MALDISkyLink.csproj.AssemblyReference.cache
