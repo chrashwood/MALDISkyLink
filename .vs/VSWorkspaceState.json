@@ -2,12 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\MALDI-Skyline-Interface",
-    "\\MALDI-Skyline-Interface\\bin",
-    "\\MALDI-Skyline-Interface\\obj\\Debug",
-    "\\MALDI-Skyline-Interface\\obj\\Release",
+    "\\MALDI-Skyline-Interface\\obj",
     "\\MALDI-Skyline-Interface\\Properties",
     "\\MALDI-Skyline-Interface\\Resources"
   ],
-  "SelectedNode": "\\MALDI-Skyline-Interface\\MALDISkyLink.csproj",
+  "SelectedNode": "\\MALDI-Skyline-Interface\\Form1.Designer.cs",
   "PreviewInSolutionExplorer": false
 }

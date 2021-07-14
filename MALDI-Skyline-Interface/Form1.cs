@@ -27,6 +27,7 @@ namespace MALDISkyLink
         private bool readyForNewLines;
         private string newPath;
         private string fileName;
+        private bool doneOnce;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -123,10 +124,11 @@ namespace MALDISkyLink
             MSCentroid.WaitForExit();
 
             // Opens the location of the folder where the mzXML comes out and closes the program
-            Process.Start("explorer.exe", newPath);
+            if (doneOnce == false) {Process.Start("explorer.exe", newPath);}
             //Disable this if you want the non-centroided file
             File.Delete(openFileDialog1.SelectedPath + "_SkyLink.mzXML");
             MessageBox.Show("File conversion complete. It is now compatible with Skyline");
+            doneOnce = true;
         }
     }
 }
