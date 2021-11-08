@@ -9,4 +9,4 @@ Once a dataset is acquired:
    d. R script is run, making an excel spreadsheet with relative intensities for the monoisotopic peak quant AND full isotopic envelope quant
 3. Skyline document is uploaded to Panorama.
 
-Requires Proteowizard and Skyline to be installed. MSConvert should also be added to the path (https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/).
+Requires Proteowizard and Skyline to be installed. MSConvert should also be added to the path on Windows 10 (https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/).
